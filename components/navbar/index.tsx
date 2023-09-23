@@ -11,7 +11,13 @@ import {
   NavbarMenu,
   NavbarMenuItem,
 } from "@nextui-org/react";
-import { UserCircle2, Bookmark, Search, Crown } from "lucide-react";
+import {
+  UserCircle2,
+  Bookmark,
+  Search,
+  Crown,
+  ChevronDown,
+} from "lucide-react";
 import {
   Dropdown,
   DropdownTrigger,
@@ -52,25 +58,90 @@ export default function Nav() {
 
       <NavbarContent className="hidden md:flex gap-4" justify="center">
         <NavbarItem>
-          <Link color="foreground" href="#">
-            Features
-          </Link>
+          <Dropdown
+            size="lg"
+            className="p-2 flex items-start justify-start rounded-none"
+          >
+            <DropdownTrigger>
+              <Link
+                color="foreground"
+                href="#"
+                className="flex items-center gap-2"
+              >
+                Browse <ChevronDown className="h-4 w-4" />
+              </Link>
+            </DropdownTrigger>
+            <DropdownMenu
+              variant="faded"
+              aria-label="Static Actions"
+              className="p-0"
+            >
+              <DropdownItem key="new" className="rounded-none">
+                Popular
+              </DropdownItem>
+              <DropdownItem key="new" className="rounded-none">
+                New
+              </DropdownItem>
+
+              <DropdownItem key="new" className="rounded-none">
+                Alphabetical
+              </DropdownItem>
+
+              <DropdownItem key="new" className="rounded-none">
+                Simulcast Season
+              </DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
         </NavbarItem>
-        <NavbarItem isActive>
+        <NavbarItem>
           <Link href="#" aria-current="page">
-            Customers
+            Manga
           </Link>
         </NavbarItem>
         <NavbarItem>
           <Link color="foreground" href="#">
-            Integrations
+            Movies
           </Link>
         </NavbarItem>
+        <NavbarItem>
+          <Dropdown
+            size="lg"
+            className="p-2 flex items-start justify-start rounded-none"
+          >
+            <DropdownTrigger>
+              <Link
+                color="foreground"
+                href="#"
+                className="flex items-center gap-2"
+              >
+                News <ChevronDown className="h-4 w-4" />
+              </Link>
+            </DropdownTrigger>
+            <DropdownMenu
+              variant="faded"
+              aria-label="Static Actions"
+              className="p-0"
+            >
+              <DropdownItem key="new" className="rounded-none">
+                All News
+              </DropdownItem>
+              <DropdownItem key="new" className="rounded-none">
+                Anime Awards
+              </DropdownItem>
+
+              <DropdownItem key="new" className="rounded-none">
+                Crunchycool Expo
+              </DropdownItem>
+
+              <DropdownItem key="new" className="rounded-none">
+                Anime Movie Night
+              </DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
+        </NavbarItem>
+        <NavbarItem></NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
-        </NavbarItem>
         <NavbarItem>
           <div className="flex items-center gap-0.5 md:gap-2">
             <Tooltip

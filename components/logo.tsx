@@ -4,7 +4,7 @@ import { Fan } from "lucide-react";
 export default function Logo() {
   return (
     <div
-      className="flex items-center gap-0.5 hover:text-foreground cursor-pointer"
+      className="flex items-center gap-0.5 hover:text-accent cursor-pointer"
       aria-label="crunch logo"
     >
       <Link href="/">
