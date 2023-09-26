@@ -1,6 +1,6 @@
 import { Card, Skeleton } from "@nextui-org/react";
 
-export default function CardSliderLoader() {
+export default function AnimeSliderLoader() {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
       {Array(5)

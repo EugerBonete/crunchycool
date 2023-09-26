@@ -27,6 +27,7 @@ import {
 } from "@nextui-org/react";
 import { Button } from "../ui/button";
 import Logo from "../logo";
+import { useTheme } from "next-themes";
 
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -44,6 +45,15 @@ export default function Nav() {
     "Log Out",
   ];
 
+  const { theme, setTheme } = useTheme();
+
+  const handleToggle = () => {
+    if (theme === "dark") {
+      setTheme("light");
+    } else {
+      setTheme("dark");
+    }
+  };
   return (
     <Navbar isBordered onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent justify="center">
@@ -66,7 +76,7 @@ export default function Nav() {
               <Link
                 color="foreground"
                 href="#"
-                className="flex items-center gap-2"
+                className="flex items-center gap-2 text-sm"
               >
                 Browse <ChevronDown className="h-4 w-4" />
               </Link>
@@ -94,12 +104,12 @@ export default function Nav() {
           </Dropdown>
         </NavbarItem>
         <NavbarItem>
-          <Link href="#" aria-current="page">
+          <Link className="text-sm" href="#" aria-current="page">
             Manga
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link className="text-sm" color="foreground" href="#">
             Movies
           </Link>
         </NavbarItem>
@@ -112,7 +122,7 @@ export default function Nav() {
               <Link
                 color="foreground"
                 href="#"
-                className="flex items-center gap-2"
+                className="flex items-center gap-2 text-sm"
               >
                 News <ChevronDown className="h-4 w-4" />
               </Link>
@@ -159,16 +169,16 @@ export default function Nav() {
               }
             >
               <Button>
-                <Crown className="h-4 w-4 mr-1" />
+                <Crown className="h-4 w-4 md:h-5 md:w-5 mr-1" />
                 Premium
               </Button>
             </Tooltip>
 
             <Button color="primary" size="icon" variant="ghost">
-              <Search />
+              <Search className="h-4 w-4 md:h-5 md:w-5" />
             </Button>
             <Button color="primary" size="icon" variant="ghost" className="">
-              <Bookmark />
+              <Bookmark className="h-4 w-4 md:h-5 md:w-5" />
             </Button>
 
             <Dropdown
@@ -177,7 +187,7 @@ export default function Nav() {
             >
               <DropdownTrigger>
                 <Button size="icon" variant="ghost">
-                  <UserCircle2 />
+                  <UserCircle2 className="h-4 w-4 md:h-5 md:w-5" />
                 </Button>
               </DropdownTrigger>
               <DropdownMenu
@@ -198,6 +208,14 @@ export default function Nav() {
                   className="py-4 rounded-none"
                 >
                   Log In
+                </DropdownItem>
+                <DropdownItem
+                  onClick={handleToggle}
+                  key="theme"
+                  description="Switch between dark and light mode."
+                  className="py-4 rounded-none"
+                >
+                  Toggle theme
                 </DropdownItem>
                 <DropdownItem
                   key="new"

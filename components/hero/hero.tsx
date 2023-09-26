@@ -36,7 +36,11 @@ export default function HeroSlider() {
       <Swiper
         spaceBetween={30}
         slidesPerView={1}
-        autoplay={true}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        }}
         grabCursor={true}
         pagination={pagination}
         loop={true}
@@ -100,16 +104,13 @@ function SwiperCard({ anime }: { anime: IAnimeResult }) {
           <div className="flex items-center gap-2 mt-10 md:mt-0">
             <Link
               href={`anilist?anime=${anime.id}`}
-              className={cn(
-                buttonVariants({ size: "lg" }),
-                "uppercase w-full md:w-fit"
-              )}
+              className={cn(buttonVariants(), "uppercase w-full md:w-fit")}
             >
               <Play className="h-4 w-4 mr-2" /> Start watching s1 e1
             </Link>
             <Tooltip showArrow={true} content="Add to Watchlist">
               <Button size="icon" variant="outline">
-                <Plus />
+                <Plus className="h-4 w-4" />
               </Button>
             </Tooltip>
           </div>
