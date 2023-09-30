@@ -18,7 +18,7 @@ export default function AnimeSliderContainer({
   isLoading,
 }: AnimeSliderContainerProps) {
   return (
-    <div className="pt-2 md:pt-5 w-screen relative">
+    <div className="pt-2 md:pt-5 w-screen max-w-[1500px] relative mx-auto">
       <Button
         variant="link"
         size="icon"
@@ -50,7 +50,6 @@ export default function AnimeSliderContainer({
           />
         )}
       </div>
-      
     </div>
   );
 }

@@ -72,14 +72,10 @@ export default function Nav() {
             size="lg"
             className="p-2 flex items-start justify-start rounded-none"
           >
-            <DropdownTrigger>
-              <Link
-                color="foreground"
-                href="#"
-                className="flex items-center gap-2 text-sm"
-              >
+            <DropdownTrigger className="flex items-center gap-2 text-sm cursor-pointer">
+              <div>
                 Browse <ChevronDown className="h-4 w-4" />
-              </Link>
+              </div>
             </DropdownTrigger>
             <DropdownMenu
               variant="faded"
@@ -118,14 +114,10 @@ export default function Nav() {
             size="lg"
             className="p-2 flex items-start justify-start rounded-none"
           >
-            <DropdownTrigger>
-              <Link
-                color="foreground"
-                href="#"
-                className="flex items-center gap-2 text-sm"
-              >
+            <DropdownTrigger className="flex items-center gap-2 text-sm cursor-pointer">
+              <div>
                 News <ChevronDown className="h-4 w-4" />
-              </Link>
+              </div>
             </DropdownTrigger>
             <DropdownMenu
               variant="faded"
@@ -210,12 +202,20 @@ export default function Nav() {
                   Log In
                 </DropdownItem>
                 <DropdownItem
-                  onClick={handleToggle}
+                  onClick={() => setTheme("light")}
                   key="theme"
-                  description="Switch between dark and light mode."
+                  description="Switch to light mode."
                   className="py-4 rounded-none"
                 >
-                  Toggle theme
+                  Light Mode
+                </DropdownItem>
+                <DropdownItem
+                  onClick={() => setTheme("dark")}
+                  key="theme"
+                  description="Switch to dark mode."
+                  className="py-4 rounded-none"
+                >
+                  Dark Mode
                 </DropdownItem>
                 <DropdownItem
                   key="new"

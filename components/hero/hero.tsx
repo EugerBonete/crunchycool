@@ -32,7 +32,7 @@ export default function HeroSlider() {
     return <HeroSliderLoader />;
   }
   return (
-    <div className="w-screen">
+    <div className="w-screen max-w-[1500px] mx-auto">
       <Swiper
         spaceBetween={30}
         slidesPerView={1}
@@ -41,7 +41,6 @@ export default function HeroSlider() {
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
         }}
-        grabCursor={true}
         pagination={pagination}
         loop={true}
         modules={[Navigation, Autoplay, Pagination]}
@@ -120,17 +119,13 @@ function SwiperCard({ anime }: { anime: IAnimeResult }) {
       <img
         src={anime.cover || ""}
         alt="anime cover"
-        height={500}
-        width={500}
-        className="hidden sm:block object-cover w-full h-[500px]"
+        className="hidden sm:block object-cover w-full h-[320px]"
       />
 
       <img
         src={anime.image || ""}
         alt="anime image"
-        height={500}
-        width={500}
-        className="block sm:hidden object-cover object-top w-full h-[300px]"
+        className="block sm:hidden object-cover object-top w-full h-[250px]"
       />
     </>
   );

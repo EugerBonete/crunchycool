@@ -59,7 +59,9 @@ export default function AnimeSlider({
 function SwiperCard({ anime }: { anime: IAnimeResult }) {
   return (
     <Link
-      href={`/gogo?anime=${anime.id}`}
+      href={
+        anime.cover ? `/anilist?anime=${anime.id}` : `/gogo?anime=${anime.id}`
+      }
       className="flex flex-col gap-2 h-80 md:h-96 hover:h-80 cursor-pointer group relative  max-w-[200px] "
     >
       <img
