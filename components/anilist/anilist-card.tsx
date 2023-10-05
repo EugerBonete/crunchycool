@@ -17,9 +17,9 @@ export default function AnilistCard({
   data,
   isDescendingOrder,
 }: AnilistCardProps) {
-  console.log(episode);
   return (
-    <div
+    <Link
+      href={`/watch/anilist?anime=${data.id}&episode=${episode.id}`}
       key={episode.id}
       className="space-y-2 my-2 md:my-5 relative group cursor-pointer"
     >
@@ -81,6 +81,6 @@ export default function AnilistCard({
       {data.subOrDub === "sub" && (
         <p className="text-xs text-muted-foreground">Subtitled</p>
       )}
-    </div>
+    </Link>
   );
 }

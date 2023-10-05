@@ -38,8 +38,8 @@ function AnilistEpisode({ data }: AnilistEpisodeProps) {
     : data.episodes;
 
   return (
-    <div className="px-5 max-w-5xl md:mx-auto my-10 flex gap-2 flex-col">
-      <div className="flex justify-between mb-2">
+    <div className="max-w-5xl md:mx-auto my-5 flex gap-2 flex-col">
+      <div className="flex justify-between">
         <h3>
           <Title text={data.title} />
         </h3>

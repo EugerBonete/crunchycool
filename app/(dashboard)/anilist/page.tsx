@@ -4,7 +4,7 @@ import { useGetAnilistInfo } from "@/context/info-anilist";
 import { useSearchParams } from "next/navigation";
 import AnilistInfo from "@/components/anilist/anilist-info";
 import AnilistEpisode from "@/components/anilist/anilist-episode";
-import InfoLoader from "@/components/loaders/info-loader";
+import Loader from "@/components/loaders/loader";
 
 export default function AnilistPage() {
   const searchParams = useSearchParams();
@@ -14,7 +14,7 @@ export default function AnilistPage() {
   const { data, isLoading } = useGetAnilistInfo(anime as string);
 
   if (isLoading) {
-    return <InfoLoader />;
+    return <Loader />;
   }
   console.log(data);
 
@@ -33,7 +33,9 @@ export default function AnilistPage() {
       </div>
       <AnilistInfo data={data} />
       {data.episodes.length ? (
-        <AnilistEpisode data={data} />
+        <div className="px-5">
+          <AnilistEpisode data={data} />
+        </div>
       ) : (
         <p className="text-center my-10 md:my-20">No episodes available</p>
       )}

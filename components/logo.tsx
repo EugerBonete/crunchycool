@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { Fan } from "lucide-react";
-
+import { GiTrefoilShuriken } from "react-icons/gi";
 export default function Logo() {
   return (
     <Link href="/">
@@ -8,8 +7,8 @@ export default function Logo() {
         className="flex items-center gap-0.5 hover:text-foreground cursor-pointer text-orange"
         aria-label="crunch logo"
       >
-        <Fan />
-        <p className="text-inherit text-xl pb-1 hidden xs:block tracking-tight font-semibold">
+        <GiTrefoilShuriken className="w-8 h-8" />
+        <p className="text-inherit text-xl hidden xs:block tracking-tight font-semibold">
           shuriken
         </p>
       </div>
