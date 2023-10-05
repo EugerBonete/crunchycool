@@ -67,7 +67,7 @@ export default function AnilistCard({
           className="w-full h-full object-cover"
         />
         <div className="absolute group-hover:hidden inset-0 z-10 flex items-center justify-center">
-          <PlayCircle className="h-10 w-10 text-white bg-black" />
+          <PlayCircle className="h-10 w-10 text-white bg-black rounded-full" />
         </div>
       </AspectRatio>
       <p
