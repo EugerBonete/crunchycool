@@ -5,7 +5,7 @@ export default function Logo() {
   return (
     <Link href="/">
       <div
-        className="flex items-center gap-0.5 hover:text-accent cursor-pointer"
+        className="flex items-center gap-0.5 hover:text-accent cursor-pointer text-orange"
         aria-label="crunch logo"
       >
         <Fan />

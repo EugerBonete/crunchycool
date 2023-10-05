@@ -1,7 +1,6 @@
 "use client";
 import { IAnimeEpisode, IAnimeResult } from "@/types";
 import React, { useState } from "react";
-import { AspectRatio } from "../ui/aspect-ratio";
 import {
   Dropdown,
   DropdownTrigger,
@@ -12,6 +11,7 @@ import { Button } from "../ui/button";
 import { SlidersHorizontal } from "lucide-react";
 import Title from "../shared/title";
 import { cn } from "@/lib/utils";
+import AnilistCard from "./anilist-card";
 interface AnilistEpisodeProps {
   data: IAnimeResult;
 }
@@ -53,14 +53,20 @@ function AnilistEpisode({ data }: AnilistEpisodeProps) {
           <DropdownMenu aria-label="Static Actions">
             <DropdownItem
               onClick={() => setIsDescendingOrder(true)}
-              className="rounded-none"
+              className={cn(
+                "rounded-none",
+                isDescendingOrder && "bg-secondary text-secondary-foreground"
+              )}
               key="Latest"
             >
               Latest
             </DropdownItem>
             <DropdownItem
               onClick={() => setIsDescendingOrder(false)}
-              className="rounded-none"
+              className={cn(
+                "rounded-none",
+                !isDescendingOrder && "bg-secondary text-secondary-foreground"
+              )}
               key="Oldest"
             >
               Oldest
@@ -72,26 +78,11 @@ function AnilistEpisode({ data }: AnilistEpisodeProps) {
         {sortedEpisodes
           .slice(0, visibleEpisodes)
           .map((episode: IAnimeEpisode) => (
-            <div key={episode.id} className="space-y-2">
-              <AspectRatio ratio={16 / 9}>
-                <img
-                  src={episode.image}
-                  alt={`Episode ${episode.number}`}
-                  className="w-full h-full object-cover"
-                />
-              </AspectRatio>
-              <p
-                className={cn(
-                  "text-sm h-14 line-clamp-3 ",
-                  isDescendingOrder && "md:w-[230px]"
-                )}
-              >
-                Episode {episode.number} {episode.title && `:${episode.title}`}
-              </p>
-              {data.subOrDub === "sub" && (
-                <p className="text-xs text-muted-foreground">Subtitled</p>
-              )}
-            </div>
+            <AnilistCard
+              episode={episode}
+              data={data}
+              isDescendingOrder={isDescendingOrder}
+            />
           ))}
       </div>
       {visibleEpisodes < totalEpisodes && (

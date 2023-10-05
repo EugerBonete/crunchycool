@@ -93,7 +93,14 @@ export default function AnilistInfo({ data }: { data: IAnimeResult }) {
             />
           </AspectRatio>
           <Button className="uppercase w-full" size="sm">
-            <Plus className="mr-2 h-4 w-4" /> Start Watching EP1000
+            {data.episodes.length ? (
+              <>
+                <Plus className="mr-2 h-4 w-4" /> Start Watching EP{" "}
+                {data.episodes[data.episodes?.length - 1].number}
+              </>
+            ) : (
+              "No episodes available"
+            )}
           </Button>
         </div>
       </div>

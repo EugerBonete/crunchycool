@@ -31,7 +31,11 @@ export default function AnilistPage() {
         />
       </div>
       <AnilistInfo data={data} />
-      <AnilistEpisode data={data} />
+      {data.episodes.length ? (
+        <AnilistEpisode data={data} />
+      ) : (
+        <p className="text-center my-10 md:my-20">No episodes available</p>
+      )}
     </div>
   );
 }

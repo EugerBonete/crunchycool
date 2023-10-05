@@ -124,6 +124,7 @@ export interface IAnimeEpisode {
   image?: string;
   releaseDate?: string;
   [x: string]: unknown; // other fields
+  createdAt?: any;
 }
 
 export interface IEpisodeServer {
