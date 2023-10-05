@@ -90,7 +90,7 @@ function SwiperCard({ anime }: { anime: IAnimeResult }) {
 
         <div className="flex flex-wrap gap-2 overflow-y-visible">
           {anime?.genres?.length &&
-            anime.genres.map((item: string, index: number) => (
+            anime.genres.slice(0, 4).map((item: string, index: number) => (
               <Chip size="sm" key={index}>
                 {item}
               </Chip>

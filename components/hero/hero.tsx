@@ -32,7 +32,7 @@ export default function HeroSlider() {
     return <HeroSliderLoader />;
   }
   return (
-    <div className="w-screen max-w-[1500px] mx-auto">
+    <div className="w-screen max-w-[1500px] mx-auto mb-5 md:mb-10">
       <Swiper
         spaceBetween={30}
         slidesPerView={1}
@@ -81,12 +81,15 @@ export default function HeroSlider() {
 function SwiperCard({ anime }: { anime: IAnimeResult }) {
   return (
     <>
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent p-10 flex w-2/3" />
-      <div className="absolute inset-0 p-10 flex mx-5">
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent p-5 md:p-10 flex w-2/3" />
+      <div className="absolute inset-0 p-10 flex md:mx-5">
         <div className="flex-1 flex flex-col gap-4 justify-center">
-          <div className="text-xl md:text-2xl font-bold text-white">
+          <Link
+            href={`anilist?anime=${anime.id}`}
+            className="text-xl md:text-2xl font-bold text-white"
+          >
             <Title text={anime.title} />
-          </div>
+          </Link>
           <p className="text-xs text-white/70">
             {anime.genres.map((genre: string, index: number) => (
               <span key={index}>
@@ -103,7 +106,7 @@ function SwiperCard({ anime }: { anime: IAnimeResult }) {
           <div className="flex items-center gap-2 mt-10 md:mt-0">
             <Link
               href={`anilist?anime=${anime.id}`}
-              className={cn(buttonVariants(), "uppercase w-full md:w-fit")}
+              className={cn(buttonVariants(), "uppercase w-full sm:w-fit")}
             >
               <Play className="h-4 w-4 mr-2" /> Start watching s1 e1
             </Link>

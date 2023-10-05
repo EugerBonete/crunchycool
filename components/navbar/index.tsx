@@ -69,6 +69,7 @@ export default function Nav() {
       <NavbarContent className="hidden md:flex gap-4" justify="center">
         <NavbarItem>
           <Dropdown
+            backdrop="blur"
             size="lg"
             className="p-2 flex items-start justify-start rounded-none"
           >
@@ -111,6 +112,7 @@ export default function Nav() {
         </NavbarItem>
         <NavbarItem>
           <Dropdown
+            backdrop="blur"
             size="lg"
             className="p-2 flex items-start justify-start rounded-none"
           >
