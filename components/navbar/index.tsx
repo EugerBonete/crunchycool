@@ -55,7 +55,7 @@ export default function Nav() {
     }
   };
   return (
-    <Navbar isBordered onMenuOpenChange={setIsMenuOpen}>
+    <Navbar isBordered onMenuOpenChange={setIsMenuOpen} isBlurred={false}>
       <NavbarContent justify="center">
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -134,7 +134,7 @@ export default function Nav() {
               </DropdownItem>
 
               <DropdownItem key="new" className="rounded-none">
-                Crunchycool Expo
+                Shuriken Expo
               </DropdownItem>
 
               <DropdownItem key="new" className="rounded-none">
@@ -198,7 +198,7 @@ export default function Nav() {
                 </DropdownItem>
                 <DropdownItem
                   key="new"
-                  description="Already joined Crunchycool? Welcome back."
+                  description="Already joined Shuriken? Welcome back."
                   className="py-4 rounded-none"
                 >
                   Log In

@@ -5,10 +5,10 @@ export default function Footer() {
         <h3 className="text-sm font-semibold">Navigation</h3>
 
         <p className="text-xs text-muted-foreground">Browse Popular</p>
-        <p className="text-xs text-muted-foreground">Browse Popular</p>
-        <p className="text-xs text-muted-foreground">Browse Popular</p>
-        <p className="text-xs text-muted-foreground">Browse Popular</p>
-        <p className="text-xs text-muted-foreground">Browse Popular</p>
+        <p className="text-xs text-muted-foreground">Browse Simulcasts</p>
+        <p className="text-xs text-muted-foreground">Browse Manga</p>
+        <p className="text-xs text-muted-foreground">Manga</p>
+        <p className="text-xs text-muted-foreground">Movies</p>
       </div>
 
       <div className="flex flex-col gap-3 border-b pb-5 md:border-none">

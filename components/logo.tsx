@@ -9,8 +9,8 @@ export default function Logo() {
         aria-label="crunch logo"
       >
         <Fan />
-        <p className="font-bold text-inherit text-xl pb-1 hidden xs:block tracking-tighter">
-          crunchycool
+        <p className="text-inherit text-xl pb-1 hidden xs:block tracking-tight font-semibold">
+          shuriken
         </p>
       </div>
     </Link>
