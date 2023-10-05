@@ -3,6 +3,7 @@
 import { useGetAnilistInfo } from "@/context/info-anilist";
 import { useSearchParams } from "next/navigation";
 import AnilistInfo from "@/components/anilist/anilist-info";
+import AnilistEpisode from "@/components/anilist/anilist-episode";
 
 export default function AnilistPage() {
   const searchParams = useSearchParams();
@@ -30,6 +31,7 @@ export default function AnilistPage() {
         />
       </div>
       <AnilistInfo data={data} />
+      <AnilistEpisode data={data} />
     </div>
   );
 }
