@@ -25,9 +25,11 @@ import {
   DropdownItem,
   Tooltip,
 } from "@nextui-org/react";
-import { Button } from "../ui/button";
+import { Button, buttonVariants } from "../ui/button";
 import Logo from "../logo";
 import { useTheme } from "next-themes";
+import PremiumBtn from "./premium-button";
+import { cn } from "@/lib/utils";
 
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -148,31 +150,20 @@ export default function Nav() {
       <NavbarContent justify="end">
         <NavbarItem>
           <div className="flex items-center gap-0.5 md:gap-2">
-            <Tooltip
-              showArrow={true}
-              content={
-                <div className="px-1 py-2">
-                  <div className="flex items-center gap-2 font-semibold uppercase justify-center">
-                    <Crown /> 14-day free trial
-                  </div>
-                  <p className="w-[300px] text-tiny">
-                    Premium access includes unlimited anime, no ads, and new
-                    episodes shortly after they air in Japan. Try it now!
-                  </p>
-                </div>
-              }
+            <PremiumBtn />
+            <Link
+              href="/search"
+              className={cn(buttonVariants({ variant: "ghost", size: "icon" }))}
             >
-              <Button>
-                <Crown className="h-4 w-4 md:h-5 md:w-5 mr-1" />
-                Premium
-              </Button>
-            </Tooltip>
-
-            <Button color="primary" size="icon" variant="ghost">
-              <Search className="h-4 w-4 md:h-5 md:w-5" />
-            </Button>
-            <Button color="primary" size="icon" variant="ghost" className="">
-              <Bookmark className="h-4 w-4 md:h-5 md:w-5" />
+              <Search className="h-5 md:w-5" />
+            </Link>
+            <Button
+              color="primary"
+              size="icon"
+              variant="ghost"
+              className="hidden md:inline-flex"
+            >
+              <Bookmark className="h-5 md:w-5" />
             </Button>
 
             <Dropdown
@@ -181,7 +172,7 @@ export default function Nav() {
             >
               <DropdownTrigger>
                 <Button size="icon" variant="ghost">
-                  <UserCircle2 className="h-4 w-4 md:h-5 md:w-5" />
+                  <UserCircle2 className="h-5 md:w-5" />
                 </Button>
               </DropdownTrigger>
               <DropdownMenu
