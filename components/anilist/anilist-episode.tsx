@@ -87,7 +87,7 @@ function AnilistEpisode({ data }: AnilistEpisodeProps) {
       </div>
       {visibleEpisodes < totalEpisodes && (
         <Button
-          className="show-more-button mt-10"
+          className="show-more-button mt-5"
           size="sm"
           onClick={handleShowMore}
         >

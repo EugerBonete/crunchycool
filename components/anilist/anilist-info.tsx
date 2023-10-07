@@ -23,7 +23,7 @@ export default function AnilistInfo({ data }: { data: IAnimeResult }) {
             <h3 className="text-2xl md:text-3xl font-bold ml-2">
               <Title text={data.title} />
             </h3>
-            <Share2 className=" h-4 w-4" />
+            <Share2 className="h-5 w-5" />
           </div>
 
           <p className="text-xs text-muted-foreground ml-2 mt-5">Subtitled</p>

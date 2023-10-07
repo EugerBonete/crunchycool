@@ -1,7 +1,6 @@
 export const Navigation = [
   "Popular",
   "New",
-  "Alphabetical",
   "Latest",
   "Trending",
   "Manga",
@@ -23,7 +22,6 @@ export const Account = ["Create Account", "Log In"];
 export const Genres = [
   "Action",
   "Adventure",
-  "Cars",
   "Comedy",
   "Drama",
   "Fantasy",
