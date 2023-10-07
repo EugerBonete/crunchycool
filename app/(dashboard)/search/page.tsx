@@ -1,16 +1,9 @@
 "use client";
-import InfoLoader from "@/components/loaders/loader";
+import CardGridLoader from "@/components/loaders/card-grid-loader";
 import Title from "@/components/shared/title";
 import { useSearch } from "@/context/use-search";
 import { IAnimeResult } from "@/types";
-import {
-  Card,
-  Image,
-  Input,
-  Radio,
-  RadioGroup,
-  Skeleton,
-} from "@nextui-org/react";
+import { Image, Input, Radio, RadioGroup } from "@nextui-org/react";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 
@@ -27,13 +20,13 @@ export default function Search() {
       ? "movies"
       : "manga-ts-react";
 
-  const { data, isLoading, isFetching, isError, refetch } = useSearch({
+  const { data, isFetching, refetch, isFetched } = useSearch({
     id: query,
     server: server,
     type: type,
   });
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     refetch();
   };
@@ -49,10 +42,8 @@ export default function Search() {
         value={server}
         onValueChange={setServer}
       >
-        <Radio value="gogoanime">Anime Server 1</Radio>
-        <Radio value="anilist">Anime Server 2</Radio>
-        <Radio value="manga">Manga</Radio>
-        <Radio value="movies">Movies</Radio>
+        <Radio value="gogoanime">Server 1</Radio>
+        <Radio value="anilist">Server 2</Radio>
       </RadioGroup>
 
       <Input
@@ -68,8 +59,8 @@ export default function Search() {
         isRequired
         isClearable
       />
-      {data?.results?.length && (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-5">
+      {data?.results?.length ? (
+        <div className="grid grid-cols-2 sm:grid-cols-3">
           {data.results.map((data: IAnimeResult) => (
             <Link
               href={`/${
@@ -84,11 +75,12 @@ export default function Search() {
               key={data.id}
               className="p-2 md:p-4"
             >
-              <div className="shadow-md">
-                <img
+              <div>
+                <Image
                   src={data.image}
                   alt="Anime Image"
-                  className="w-full h-52 md:h-72 object-cover"
+                  className="h-32 lg:h-40 w-72 object-cover"
+                  radius="none"
                 />
                 <div className="space-y-2">
                   <h3 className="text-sm font-semibold mt-2">
@@ -102,27 +94,14 @@ export default function Search() {
             </Link>
           ))}
         </div>
+      ) : (
+        ""
       )}
-      {isFetching && (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-5">
-          {Array.from({ length: 10 }).map((_, idx) => (
-            <Card key={idx} className="w-[200px] space-y-5 p-4" radius="lg">
-              <Skeleton className="rounded-lg">
-                <div className="h-24 rounded-lg bg-default-300"></div>
-              </Skeleton>
-              <div className="space-y-3">
-                <Skeleton className="w-3/5 rounded-lg">
-                  <div className="h-3 w-3/5 rounded-lg bg-default-200"></div>
-                </Skeleton>
-                <Skeleton className="w-4/5 rounded-lg">
-                  <div className="h-3 w-4/5 rounded-lg bg-default-200"></div>
-                </Skeleton>
-                <Skeleton className="w-2/5 rounded-lg">
-                  <div className="h-3 w-2/5 rounded-lg bg-default-300"></div>
-                </Skeleton>
-              </div>
-            </Card>
-          ))}
+      {isFetching && <CardGridLoader />}
+      {isFetched && data?.results?.length === 0 && (
+        <div className="text-center my-10 md:my-20">
+          <p>No results found.</p>
+          <p>Try a different server.</p>
         </div>
       )}
     </form>

@@ -10,6 +10,8 @@ import {
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
+  Accordion,
+  AccordionItem,
 } from "@nextui-org/react";
 import {
   UserCircle2,
@@ -30,22 +32,10 @@ import Logo from "../logo";
 import { useTheme } from "next-themes";
 import PremiumBtn from "./premium-button";
 import { cn } from "@/lib/utils";
+import { Genres, Navigation } from "@/lib/constants";
 
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-
-  const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
-  ];
 
   const { theme, setTheme } = useTheme();
 
@@ -68,6 +58,7 @@ export default function Nav() {
         </NavbarBrand>
       </NavbarContent>
 
+      {/* left */}
       <NavbarContent className="hidden md:flex gap-4" justify="center">
         <NavbarItem>
           <Dropdown
@@ -147,6 +138,8 @@ export default function Nav() {
         </NavbarItem>
         <NavbarItem></NavbarItem>
       </NavbarContent>
+
+      {/* right */}
       <NavbarContent justify="end">
         <NavbarItem>
           <div className="flex items-center gap-0.5 md:gap-2">
@@ -195,24 +188,17 @@ export default function Nav() {
                   Log In
                 </DropdownItem>
                 <DropdownItem
-                  onClick={() => setTheme("light")}
+                  onClick={handleToggle}
                   key="theme"
-                  description="Switch to light mode."
+                  description="Switch between dark & light mode."
                   className="py-4 rounded-none"
                 >
-                  Light Mode
+                  Theme
                 </DropdownItem>
-                <DropdownItem
-                  onClick={() => setTheme("dark")}
-                  key="theme"
-                  description="Switch to dark mode."
-                  className="py-4 rounded-none"
-                >
-                  Dark Mode
-                </DropdownItem>
+
                 <DropdownItem
                   key="new"
-                  className="py-4 rounded-none bg-yellow-400"
+                  className="py-4 rounded-none bg-premium"
                 >
                   <div className="flex items-center gap-2 font-semibold uppercase justify-center">
                     <Crown /> 14-day free trial
@@ -223,25 +209,27 @@ export default function Nav() {
           </div>
         </NavbarItem>
       </NavbarContent>
+
       <NavbarMenu>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              color={
-                index === 2
-                  ? "primary"
-                  : index === menuItems.length - 1
-                  ? "danger"
-                  : "foreground"
-              }
-              className="w-full"
-              href="#"
-              size="lg"
-            >
-              {item}
-            </Link>
-          </NavbarMenuItem>
-        ))}
+        <NavbarMenuItem>
+          <div className="flex flex-col gap-3 border-b pb-5 md:border-none">
+            <h3 className="text-muted-foreground text-sm uppercase font-semibold">
+              Browse
+            </h3>
+            {Navigation.map((item: string) => (
+              <p className="text-md">{item}</p>
+            ))}
+            <Accordion className="m-0 p-0">
+              <AccordionItem key="1" aria-label="Genres" title="Genres">
+                {Genres.map((genre: string) => (
+                  <Button variant="ghost" className="w-full justify-start">
+                    {genre}
+                  </Button>
+                ))}
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </NavbarMenuItem>
       </NavbarMenu>
     </Navbar>
   );

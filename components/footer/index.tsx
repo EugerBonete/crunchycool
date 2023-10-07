@@ -1,40 +1,37 @@
+import { Account, Navigation, Site, Socials } from "@/lib/constants";
+
 export default function Footer() {
   return (
     <footer className="flex flex-col px-5 md:px-10 md:flex-row gap-5 justify-around py-10">
       <div className="flex flex-col gap-3 border-b pb-5 md:border-none">
         <h3 className="text-sm font-semibold">Navigation</h3>
-
-        <p className="text-xs text-muted-foreground">Browse Popular</p>
-        <p className="text-xs text-muted-foreground">Browse Simulcasts</p>
-        <p className="text-xs text-muted-foreground">Browse Manga</p>
-        <p className="text-xs text-muted-foreground">Manga</p>
-        <p className="text-xs text-muted-foreground">Movies</p>
+        {Navigation.map((item: string) => (
+          <p className="text-xs text-muted-foreground">{item}</p>
+        ))}
       </div>
 
       <div className="flex flex-col gap-3 border-b pb-5 md:border-none">
         <h3 className="text-sm font-semibold">Connect With Us</h3>
 
-        <p className="text-xs text-muted-foreground">Youtube</p>
-        <p className="text-xs text-muted-foreground">Facebook</p>
-        <p className="text-xs text-muted-foreground">Twitter</p>
-        <p className="text-xs text-muted-foreground">Instagram</p>
-        <p className="text-xs text-muted-foreground">TikTok</p>
+        {Socials.map((item: string) => (
+          <p className="text-xs text-muted-foreground">{item}</p>
+        ))}
       </div>
 
       <div className="flex flex-col gap-3 border-b pb-5 md:border-none">
         <h3 className="text-sm font-semibold">Crunchyroll</h3>
 
-        <p className="text-xs text-muted-foreground">About</p>
-        <p className="text-xs text-muted-foreground">Help/FAQ</p>
-        <p className="text-xs text-muted-foreground">Terms of Use</p>
-        <p className="text-xs text-muted-foreground">Privacy Policy</p>
+        {Site.map((item: string) => (
+          <p className="text-xs text-muted-foreground">{item}</p>
+        ))}
       </div>
 
       <div className="flex flex-col gap-3 border-b pb-5 md:border-none">
         <h3 className="text-sm font-semibold">Account</h3>
 
-        <p className="text-xs text-muted-foreground">Create Account</p>
-        <p className="text-xs text-muted-foreground">Log In</p>
+        {Account.map((item: string) => (
+          <p className="text-xs text-muted-foreground">{item}</p>
+        ))}
       </div>
     </footer>
   );
