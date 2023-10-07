@@ -34,9 +34,9 @@ export default function AnimeSliderContainer({
         <ChevronRight />
       </Button>
 
-      <div className="px-5 md:px-10">
+      <div className="px-5 md:px-10 space-y-2">
         <h3 className="text-xl md:text-2xl font-bold">{headline.title}</h3>
-        <p className="text-muted-foreground text-xs md:text-sm pb-2">
+        <p className="text-muted-foreground text-xs md:text-md pb-2">
           {headline.subtitle}
         </p>
 

@@ -92,7 +92,7 @@
 
 .swiper-pagination-bullets {
   width: initial !important;
-  left: 20px !important;
+  left: 50px !important;
   bottom: 20px !important;
 }
 
@@ -100,5 +100,6 @@
   .swiper-pagination-bullets {
     top: initial !important;
     bottom: 10px !important;
+    left: 20px !important;
   }
 }

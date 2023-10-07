@@ -10,6 +10,7 @@ import Image from "next/image";
 import { IAnimeResult } from "@/types";
 import { Separator } from "../ui/separator";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 export default function AnilistInfo({ data }: { data: IAnimeResult }) {
   const [isClamped, setIsClamped] = useState(true);
@@ -92,15 +93,23 @@ export default function AnilistInfo({ data }: { data: IAnimeResult }) {
               className="object-cover object-top"
             />
           </AspectRatio>
+
           <Button className="uppercase w-full" size="sm">
-            {data.episodes.length ? (
-              <>
-                <Plus className="mr-2 h-4 w-4" /> Start Watching EP{" "}
-                {data.episodes[data.episodes?.length - 1].number}
-              </>
-            ) : (
-              "No episodes available"
-            )}
+            <Link
+              href={`/watch/${data.cover ? "anilist" : "gogo"}?anime=${
+                data.id
+              }&episode=${data?.episodes[data?.episodes?.length - 1]?.id}`}
+              className="flex items-center"
+            >
+              {data.episodes.length ? (
+                <>
+                  <Plus className="mr-2 h-4 w-4" /> Start Watching EP{" "}
+                  {data.episodes[data.episodes?.length - 1].number}
+                </>
+              ) : (
+                "No episodes available"
+              )}
+            </Link>
           </Button>
         </div>
       </div>

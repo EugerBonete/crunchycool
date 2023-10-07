@@ -19,7 +19,9 @@ export default function AnilistCard({
 }: AnilistCardProps) {
   return (
     <Link
-      href={`/watch/anilist?anime=${data.id}&episode=${episode.id}`}
+      href={`/watch/${data.cover ? "anilist" : "gogo"}?anime=${
+        data.id
+      }&episode=${episode.id}`}
       key={episode.id}
       className="space-y-2 my-2 md:my-5 relative group cursor-pointer"
     >
@@ -76,8 +78,10 @@ export default function AnilistCard({
           isDescendingOrder && "md:w-[230px]"
         )}
       >
-        Episode {episode.number} {episode.title && `:${episode.title}`}
+        Episode {episode.number}{" "}
+        {episode.title ? `:${episode.title}` : `: No description available`}
       </p>
+
       {data.subOrDub === "sub" && (
         <p className="text-xs text-muted-foreground">Subtitled</p>
       )}

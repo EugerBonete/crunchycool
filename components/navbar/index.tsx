@@ -12,6 +12,9 @@ import {
   NavbarMenuItem,
   Accordion,
   AccordionItem,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
 } from "@nextui-org/react";
 import {
   UserCircle2,
@@ -25,14 +28,15 @@ import {
   DropdownTrigger,
   DropdownMenu,
   DropdownItem,
-  Tooltip,
 } from "@nextui-org/react";
+
 import { Button, buttonVariants } from "../ui/button";
 import Logo from "../logo";
 import { useTheme } from "next-themes";
 import PremiumBtn from "./premium-button";
 import { cn } from "@/lib/utils";
 import { Genres, Navigation } from "@/lib/constants";
+import NavItems from "./nav-items";
 
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -59,85 +63,7 @@ export default function Nav() {
       </NavbarContent>
 
       {/* left */}
-      <NavbarContent className="hidden md:flex gap-4" justify="center">
-        <NavbarItem>
-          <Dropdown
-            backdrop="blur"
-            size="lg"
-            className="p-2 flex items-start justify-start rounded-none"
-          >
-            <DropdownTrigger className="flex items-center gap-2 text-sm cursor-pointer">
-              <div>
-                Browse <ChevronDown className="h-4 w-4" />
-              </div>
-            </DropdownTrigger>
-            <DropdownMenu
-              variant="faded"
-              aria-label="Static Actions"
-              className="p-0"
-            >
-              <DropdownItem key="new" className="rounded-none">
-                Popular
-              </DropdownItem>
-              <DropdownItem key="new" className="rounded-none">
-                New
-              </DropdownItem>
-
-              <DropdownItem key="new" className="rounded-none">
-                Alphabetical
-              </DropdownItem>
-
-              <DropdownItem key="new" className="rounded-none">
-                Simulcast Season
-              </DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
-        </NavbarItem>
-        <NavbarItem>
-          <Link className="text-sm" href="#" aria-current="page">
-            Manga
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link className="text-sm" color="foreground" href="#">
-            Movies
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Dropdown
-            backdrop="blur"
-            size="lg"
-            className="p-2 flex items-start justify-start rounded-none"
-          >
-            <DropdownTrigger className="flex items-center gap-2 text-sm cursor-pointer">
-              <div>
-                News <ChevronDown className="h-4 w-4" />
-              </div>
-            </DropdownTrigger>
-            <DropdownMenu
-              variant="faded"
-              aria-label="Static Actions"
-              className="p-0"
-            >
-              <DropdownItem key="new" className="rounded-none">
-                All News
-              </DropdownItem>
-              <DropdownItem key="new" className="rounded-none">
-                Anime Awards
-              </DropdownItem>
-
-              <DropdownItem key="new" className="rounded-none">
-                Shuriken Expo
-              </DropdownItem>
-
-              <DropdownItem key="new" className="rounded-none">
-                Anime Movie Night
-              </DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
-        </NavbarItem>
-        <NavbarItem></NavbarItem>
-      </NavbarContent>
+      <NavItems />
 
       {/* right */}
       <NavbarContent justify="end">

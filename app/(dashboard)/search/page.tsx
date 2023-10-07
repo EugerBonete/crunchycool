@@ -1,10 +1,10 @@
 "use client";
+import CardGrid from "@/components/card-grid";
 import CardGridLoader from "@/components/loaders/card-grid-loader";
-import Title from "@/components/shared/title";
+import { Button } from "@/components/ui/button";
 import { useSearch } from "@/context/use-search";
-import { IAnimeResult } from "@/types";
 import { Image, Input, Radio, RadioGroup } from "@nextui-org/react";
-import Link from "next/link";
+import { SearchIcon } from "lucide-react";
 import { FormEvent, useState } from "react";
 
 export default function Search() {
@@ -34,11 +34,11 @@ export default function Search() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="min-h-[300px] px-5 md:px-10 max-w-5xl mx-auto space-y-5 md:space-y-10"
+      className="min-h-[300px] px-5 md:px-10 max-w-5xl mx-auto py-5 space-y-3 md:space-y-5"
     >
       <RadioGroup
         label="What do you want to search?"
-        className="my-5"
+        className="px-2 md:px-4"
         value={server}
         onValueChange={setServer}
       >
@@ -46,57 +46,25 @@ export default function Search() {
         <Radio value="anilist">Server 2</Radio>
       </RadioGroup>
 
-      <Input
-        radius="none"
-        size="lg"
-        type="text"
-        placeholder="Search..."
-        className=""
-        value={query}
-        onChange={(e) => {
-          setQuery(e.target.value);
-        }}
-        isRequired
-        isClearable
-      />
-      {data?.results?.length ? (
-        <div className="grid grid-cols-2 sm:grid-cols-3">
-          {data.results.map((data: IAnimeResult) => (
-            <Link
-              href={`/${
-                server === "gogoanime"
-                  ? "gogo"
-                  : server === "anilist"
-                  ? "anilist"
-                  : server === "movies"
-                  ? "movies"
-                  : "manga-ts-react"
-              }?anime=${data.id}`}
-              key={data.id}
-              className="p-2 md:p-4"
-            >
-              <div>
-                <Image
-                  src={data.image}
-                  alt="Anime Image"
-                  className="h-32 lg:h-40 w-72 object-cover"
-                  radius="none"
-                />
-                <div className="space-y-2">
-                  <h3 className="text-sm font-semibold mt-2">
-                    <Title text={data.title} />
-                  </h3>
-                  <p className="text-xs text-muted-foreground">
-                    {data.subOrDub === "sub" ? "Subtitled" : "Sub | Dub"}
-                  </p>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      ) : (
-        ""
-      )}
+      <div className="flex items-center">
+        <Input
+          radius="none"
+          type="text"
+          placeholder="Search..."
+          className="px-2 md:px-4"
+          value={query}
+          onChange={(e) => {
+            setQuery(e.target.value);
+          }}
+          isRequired
+          isClearable
+        />
+        <Button size="icon">
+          <SearchIcon />
+        </Button>
+      </div>
+      {isFetched && <p className="px-2 md:px-4">Top Results</p>}
+      {data?.results?.length ? <CardGrid data={data} server={server} /> : ""}
       {isFetching && <CardGridLoader />}
       {isFetched && data?.results?.length === 0 && (
         <div className="text-center my-10 md:my-20">
