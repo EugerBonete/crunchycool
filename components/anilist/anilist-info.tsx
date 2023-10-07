@@ -70,11 +70,17 @@ export default function AnilistInfo({ data }: { data: IAnimeResult }) {
               subtitle={
                 <p
                   className={cn(
-                    "text-medium text-foreground",
+                    "text-medium text-foreground block",
                     isClamped && "line-clamp-3"
                   )}
                 >
                   <Description text={data.description} />
+                  <span className="text-background">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Iure aperiam dignissimos exercitationem delectus nobis, est
+                    tempora corporis. Autem, laborum. Sed alias, obcaecati
+                    tenetur tempore corporis sit harum fuga autem expedita!
+                  </span>
                 </p>
               }
               onPress={() => setIsClamped(!isClamped)}
