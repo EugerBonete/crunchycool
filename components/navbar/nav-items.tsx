@@ -28,7 +28,7 @@ export default function NavItems() {
             <div className="flex">
               <div className="flex flex-col pr-2 border-r">
                 {Navigation.map((item: string) => (
-                  <Link href={`/${item}`} key={item}>
+                  <Link href={`/video?=${item}`} key={item}>
                     <Button variant="ghost" className="w-full justify-start">
                       {item}
                     </Button>
@@ -41,7 +41,7 @@ export default function NavItems() {
                 </h3>
                 <div className="grid grid-cols-3">
                   {Genres.map((item: string) => (
-                    <Link href={`genre?q=${item}`} key={item}>
+                    <Link href={`/genre?q=${item}`} key={item}>
                       <Button variant="ghost" className="w-full justify-start">
                         {item}
                       </Button>
