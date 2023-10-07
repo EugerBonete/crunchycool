@@ -106,12 +106,17 @@ function SwiperCard({ anime }: { anime: IAnimeResult }) {
           <div className="flex items-center gap-2 mt-10 md:mt-0">
             <Link
               href={`anilist?anime=${anime.id}`}
-              className={cn(buttonVariants(), "uppercase w-full sm:w-fit")}
+              className={cn(
+                buttonVariants(),
+                "uppercase w-full sm:w-fit text-sm md:text-medium min-w-[180px]"
+              )}
             >
-              <Play className="h-4 w-4 mr-2" /> Start watching s1 e1
+              <Play className="h-4 w-4 mr-2" />
+              <span className="hidden sm:inline">Start watching s1 e1</span>
+              <span className="inline sm:hidden">Start watching</span>
             </Link>
             <Tooltip showArrow={true} content="Add to Watchlist">
-              <Button size="icon" variant="outline">
+              <Button size="icon" variant="outline" className="min-w-[40px]">
                 <Plus className="h-4 w-4" />
               </Button>
             </Tooltip>

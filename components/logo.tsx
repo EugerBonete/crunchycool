@@ -7,7 +7,7 @@ export default function Logo() {
         className="flex items-center gap-0.5 hover:text-foreground cursor-pointer text-orange"
         aria-label="crunch logo"
       >
-        <GiTrefoilShuriken className="w-8 h-8" />
+        <GiTrefoilShuriken className="w-6 h-6" />
         <p className="text-inherit text-xl hidden xs:block tracking-tight font-semibold">
           shuriken
         </p>

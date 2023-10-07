@@ -149,7 +149,7 @@ export default function Nav() {
               <AccordionItem key="1" aria-label="Genres" title="Genres">
                 {Genres.map((genre: string) => (
                   <Link
-                    href={`genre?${genre}`}
+                    href={`/genre?q=${genre}`}
                     className={cn(
                       "w-full justify-start",
                       buttonVariants({ variant: "ghost" })
