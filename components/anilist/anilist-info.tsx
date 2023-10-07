@@ -87,9 +87,9 @@ export default function AnilistInfo({ data }: { data: IAnimeResult }) {
           <AspectRatio ratio={16 / 9}>
             <Image
               src={data.image!}
-              alt="Photo by Drew Beamer"
+              alt="Anime Image"
               fill
-              className="object-cover"
+              className="object-cover object-top"
             />
           </AspectRatio>
           <Button className="uppercase w-full" size="sm">

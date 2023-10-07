@@ -62,7 +62,7 @@ export default function AnilistCard({
       </p>
       <AspectRatio ratio={16 / 9} className="relative">
         <img
-          src={episode.image}
+          src={episode.image || data.image}
           alt={`Episode ${episode.number}`}
           className="w-full h-full object-cover"
         />
