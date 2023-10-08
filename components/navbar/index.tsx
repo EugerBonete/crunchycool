@@ -148,14 +148,10 @@ export default function Nav() {
             <Accordion className="m-0 p-0">
               <AccordionItem key="1" aria-label="Genres" title="Genres">
                 {Genres.map((genre: string) => (
-                  <Link
-                    href={`/genre?q=${genre}`}
-                    className={cn(
-                      "w-full justify-start",
-                      buttonVariants({ variant: "ghost" })
-                    )}
-                  >
-                    {genre}
+                  <Link href={`/genre?q=${genre}`} className="w-full">
+                    <Button variant="ghost" className="w-full justify-start">
+                      {genre}
+                    </Button>
                   </Link>
                 ))}
               </AccordionItem>

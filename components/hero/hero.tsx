@@ -54,14 +54,14 @@ export default function HeroSlider() {
         <Button
           variant="link"
           size="icon"
-          className="image-swiper-button-prev absolute left-1 top-1/2 transform -translate-y-1/2 z-10 text-white"
+          className="image-swiper-button-prev hidden sm:absolute left-1 top-1/2 transform -translate-y-1/2 z-10 text-white"
         >
           <ChevronLeft className="md:h-10 md:w-10" />
         </Button>
         <Button
           variant="link"
           size="icon"
-          className="image-swiper-button-next absolute right-1 top-1/2 transform -translate-y-1/2 z-10 text-white"
+          className="image-swiper-button-next hidden sm:absolute right-1 top-1/2 transform -translate-y-1/2 z-10 text-white"
         >
           <ChevronRight className="md:h-10 md:w-10" />
         </Button>
@@ -81,16 +81,17 @@ export default function HeroSlider() {
 function SwiperCard({ anime }: { anime: IAnimeResult }) {
   return (
     <>
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent p-5 md:p-10 flex w-2/3" />
-      <div className="absolute inset-0 p-10 flex md:mx-5">
-        <div className="flex-1 flex flex-col gap-4 justify-center">
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent p-5 md:p-10 hidden sm:flex w-2/3" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-transparent p-5 md:p-10 flex sm:hidden " />
+      <div className="absolute inset-0 px-5 py-8 sm:p-10 flex md:mx-5">
+        <div className="flex-1 flex flex-col gap-4 justify-between">
           <Link
             href={`anilist?anime=${anime.id}`}
-            className="text-xl md:text-2xl font-bold text-white"
+            className="text-center sm:text-left text-xl md:text-2xl font-bold text-white"
           >
             <Title text={anime.title} />
           </Link>
-          <p className="text-xs text-white/70">
+          <p className="hidden sm:inline text-xs text-white/70">
             {anime.genres.map((genre: string, index: number) => (
               <span key={index}>
                 {genre}
@@ -133,7 +134,7 @@ function SwiperCard({ anime }: { anime: IAnimeResult }) {
       <img
         src={anime.image || ""}
         alt="anime image"
-        className="block sm:hidden object-cover object-top w-full h-[250px]"
+        className="block sm:hidden object-cover object-top w-full h-[450px]"
       />
     </>
   );
