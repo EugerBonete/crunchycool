@@ -2,28 +2,17 @@
 import CardGrid from "@/components/card-grid";
 import CardGridLoader from "@/components/loaders/card-grid-loader";
 import { Button } from "@/components/ui/button";
-import { useSearch } from "@/context/use-search";
-import { Image, Input, Radio, RadioGroup } from "@nextui-org/react";
+import { useDramaCool } from "@/context/use-dramacool";
+import { Input } from "@nextui-org/react";
 import { SearchIcon } from "lucide-react";
 import { FormEvent, useState } from "react";
 
-export default function Search() {
+export default function KDrama() {
   const [server, setServer] = useState("gogoanime");
   const [query, setQuery] = useState("");
 
-  const type =
-    server === "gogoanime"
-      ? "anime"
-      : server === "anilist"
-      ? "meta"
-      : server === "k-drama"
-      ? "k-drama"
-      : "manga-ts-react";
-
-  const { data, isFetching, refetch, isFetched } = useSearch({
-    id: query,
-    server: server,
-    type: type,
+  const { data, isFetching, refetch, isFetched } = useDramaCool({
+    q: query,
   });
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
@@ -36,16 +25,6 @@ export default function Search() {
       onSubmit={handleSubmit}
       className="min-h-[300px] px-5 md:px-10 max-w-5xl mx-auto py-5 space-y-3 md:space-y-5"
     >
-      <RadioGroup
-        label="What do you want to search?"
-        className="px-2 md:px-4"
-        value={server}
-        onValueChange={setServer}
-      >
-        <Radio value="gogoanime">Server 1</Radio>
-        <Radio value="anilist">Server 2</Radio>
-      </RadioGroup>
-
       <div className="flex items-center">
         <Input
           radius="none"
@@ -63,7 +42,9 @@ export default function Search() {
           <SearchIcon />
         </Button>
       </div>
-      {isFetched && <p className="px-2 md:px-4">Top Results</p>}
+      {isFetched && data?.results?.length && (
+        <p className="px-2 md:px-4">Top Results</p>
+      )}
       {data?.results?.length ? <CardGrid data={data} server={server} /> : ""}
       {isFetching && <CardGridLoader />}
       {isFetched && data?.results?.length === 0 && (

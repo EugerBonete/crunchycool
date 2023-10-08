@@ -143,7 +143,20 @@ export default function Nav() {
               Browse
             </h3>
             {Navigation.map((item: string) => (
-              <p className="text-md">{item}</p>
+              <Link
+                href={
+                  item === "Manga"
+                    ? `/manga`
+                    : item === "K-Drama"
+                    ? `/k-drama`
+                    : `/video?q=${item}`
+                }
+                key={item}
+              >
+                <Button variant="ghost" className="w-full justify-start">
+                  {item}
+                </Button>
+              </Link>
             ))}
             <Accordion className="m-0 p-0">
               <AccordionItem key="1" aria-label="Genres" title="Genres">

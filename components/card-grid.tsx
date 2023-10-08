@@ -18,8 +18,8 @@ export default function CardGrid({ data, server }: CardGridProps) {
               ? "gogo"
               : server === "anilist"
               ? "anilist"
-              : server === "movies"
-              ? "movies"
+              : server === "k-drama"
+              ? "k-drama"
               : "manga-ts-react"
           }?anime=${data.id}`}
           key={data.id}
@@ -29,7 +29,7 @@ export default function CardGrid({ data, server }: CardGridProps) {
             <Image
               src={data.image}
               alt="Anime Image"
-              className="h-32 lg:h-40 w-72 object-cover"
+              className="h-52 md:h-72 w-72 object-cover"
               radius="none"
             />
             <div className="space-y-2">

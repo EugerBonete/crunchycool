@@ -28,7 +28,16 @@ export default function NavItems() {
             <div className="flex">
               <div className="flex flex-col pr-2 border-r">
                 {Navigation.map((item: string) => (
-                  <Link href={`/video?q=${item}`} key={item}>
+                  <Link
+                    href={
+                      item === "Manga"
+                        ? `/manga`
+                        : item === "K-Drama"
+                        ? `/k-drama`
+                        : `/video?q=${item}`
+                    }
+                    key={item}
+                  >
                     <Button variant="ghost" className="w-full justify-start">
                       {item}
                     </Button>
@@ -52,11 +61,11 @@ export default function NavItems() {
             </div>
           </PopoverContent>
         </Popover>
-        <Link className="text-sm" href="#" aria-current="page">
+        <Link className="text-sm" href="/manga" aria-current="page">
           <Button variant="ghost">Manga</Button>
         </Link>
-        <Link className="text-sm" color="foreground" href="#">
-          <Button variant="ghost">Movies</Button>
+        <Link className="text-sm" color="foreground" href="/k-drama">
+          <Button variant="ghost">K-Drama</Button>
         </Link>
         <Popover placement="bottom" showArrow={true} radius="none">
           <PopoverTrigger>

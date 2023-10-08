@@ -22,14 +22,14 @@ export default function AnimeSliderContainer({
       <Button
         variant="link"
         size="icon"
-        className="gogo-recent-image-swiper-button-prev absolute left-1 top-1/2 transform -translate-y-1/2 z-10"
+        className={`${headline.title[0]}-image-swiper-button-prev absolute left-1 top-1/2 transform -translate-y-1/2 z-10`}
       >
         <ChevronLeft />
       </Button>
       <Button
         variant="link"
         size="icon"
-        className="gogo-recent-image-swiper-button-next absolute right-1 top-1/2 transform -translate-y-1/2 z-10"
+        className={`${headline.title[0]}-image-swiper-button-next absolute right-1 top-1/2 transform -translate-y-1/2 z-10`}
       >
         <ChevronRight />
       </Button>
@@ -45,8 +45,8 @@ export default function AnimeSliderContainer({
         ) : (
           <CardSlider
             data={data}
-            prevId="gogo-recent-image-swiper-button-prev"
-            nextId="gogo-recent-image-swiper-button-next"
+            prevId={`${headline.title[0]}-image-swiper-button-prev`}
+            nextId={`${headline.title[0]}-image-swiper-button-next`}
           />
         )}
       </div>

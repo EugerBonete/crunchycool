@@ -1,4 +1,4 @@
-export const Navigation = ["Popular", "New", "Trending", "Manga", "Movies"];
+export const Navigation = ["Popular", "New", "Trending", "Manga", "K-Drama"];
 
 export const Socials = [
   "Youtube",
