@@ -28,7 +28,7 @@ export default function NavItems() {
             <div className="flex">
               <div className="flex flex-col pr-2 border-r">
                 {Navigation.map((item: string) => (
-                  <Link href={`/video?=${item}`} key={item}>
+                  <Link href={`/video?q=${item}`} key={item}>
                     <Button variant="ghost" className="w-full justify-start">
                       {item}
                     </Button>
