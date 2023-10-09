@@ -61,15 +61,21 @@ export default function NavItems() {
             </div>
           </PopoverContent>
         </Popover>
-        <Link className="text-sm" href="/video?q=Popular" aria-current="page">
-          <Button variant="ghost">Popular</Button>
-        </Link>
-        <Link className="text-sm" href="/video?q=New" aria-current="page">
-          <Button variant="ghost">New</Button>
-        </Link>
-        <Link className="text-sm" href="/video?q=Trending" aria-current="page">
-          <Button variant="ghost">Trending</Button>
-        </Link>
+        {Navigation.map((item: string) => (
+          <Link
+            href={
+              item === "Manga"
+                ? `/manga`
+                : item === "K-Drama"
+                ? `/k-drama`
+                : `/video?q=${item}`
+            }
+            className="text-sm"
+            key={item}
+          >
+            <Button variant="ghost">{item}</Button>
+          </Link>
+        ))}
       </NavbarItem>
     </NavbarContent>
   );

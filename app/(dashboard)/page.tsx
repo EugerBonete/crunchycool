@@ -1,13 +1,20 @@
 "use client";
 
+import Banner from "@/components/banner";
 import HeroSlider from "@/components/hero/hero";
 import AnimeSlider from "@/components/slider/anime-slider-container";
+import { useGetAnilistGenre } from "@/context/genre-anilist";
 import { useGetGogoRecent } from "@/context/recent-gogoanime";
-import { useGetAnilistRomance } from "@/context/romance-anilist";
 import { useGetGogoTopAiring } from "@/context/trending-gogoanime";
 
 export default function Home() {
-  const { data: romance, isLoading: romanceLoading } = useGetAnilistRomance(1);
+  const { data: romance, isLoading: romanceLoading } = useGetAnilistGenre({
+    genre: "Romance",
+  });
+
+  const { data: mecha, isLoading: mechaLoading } = useGetAnilistGenre({
+    genre: "Mecha",
+  });
   const { data: trendingGo, isLoading: trendingGoLoading } =
     useGetGogoTopAiring(1);
 
@@ -19,6 +26,15 @@ export default function Home() {
         <HeroSlider />
 
         <AnimeSlider
+          data={recentGo}
+          isLoading={recentGoLoading}
+          headline={{
+            title: "New Episodes",
+            subtitle: "The newest anime just for you.",
+          }}
+        />
+
+        <AnimeSlider
           data={trendingGo}
           isLoading={trendingGoLoading}
           headline={{
@@ -27,14 +43,7 @@ export default function Home() {
           }}
         />
 
-        <AnimeSlider
-          data={recentGo}
-          isLoading={recentGoLoading}
-          headline={{
-            title: "Latest Release",
-            subtitle: "The newest anime just for you.",
-          }}
-        />
+        <Banner />
 
         <AnimeSlider
           data={romance}
@@ -42,6 +51,15 @@ export default function Home() {
           headline={{
             title: "Romance",
             subtitle: "Make your heart skip a beat.",
+          }}
+        />
+
+        <AnimeSlider
+          data={mecha}
+          isLoading={mechaLoading}
+          headline={{
+            title: "Robots",
+            subtitle: "Pick your mech.",
           }}
         />
       </section>

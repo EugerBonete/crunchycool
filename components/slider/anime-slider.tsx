@@ -98,7 +98,7 @@ function SwiperCard({ anime }: { anime: IAnimeResult }) {
 
           {anime.episodeNumber && <Chip> EP {anime.episodeNumber}</Chip>}
 
-          <Tooltip showArrow={true} content="Play S1 E1">
+          <Tooltip showArrow={true} content="Play E1">
             <Button
               variant="link"
               size="icon"

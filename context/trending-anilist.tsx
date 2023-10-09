@@ -5,7 +5,7 @@ export const useGetAnilistTrending = (page = 1) => {
     ["trending", page], // Include page and pageSize in the query key
     async () => {
       const res = await fetch(
-        `https://api.consumet.org/meta/anilist/trending?page=${page}`
+        `https://api.consumet.org/meta/anilist/popular?page=${page}`
       );
       return res.json();
     }

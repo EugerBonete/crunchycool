@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { useGetAnilistTrending } from "@/context/trending-anilist";
 import { IAnimeResult } from "@/types";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
-import { ChevronLeft, ChevronRight, Play, Plus } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, Bookmark } from "lucide-react";
 import { Tooltip } from "@nextui-org/react";
 import HeroSliderLoader from "./hero-slider-loader";
 import { Button, buttonVariants } from "../ui/button";
@@ -54,25 +54,31 @@ export default function HeroSlider() {
         <Button
           variant="link"
           size="icon"
-          className="image-swiper-button-prev hidden sm:absolute left-1 top-1/2 transform -translate-y-1/2 z-10 text-white"
+          className="image-swiper-button-prev hidden sm:flex absolute left-1 top-1/2 transform -translate-y-1/2 z-10 text-white"
         >
           <ChevronLeft className="md:h-10 md:w-10" />
         </Button>
         <Button
           variant="link"
           size="icon"
-          className="image-swiper-button-next hidden sm:absolute right-1 top-1/2 transform -translate-y-1/2 z-10 text-white"
+          className="image-swiper-button-next hidden sm:flex absolute right-1 top-1/2 transform -translate-y-1/2 z-10 text-white"
         >
           <ChevronRight className="md:h-10 md:w-10" />
         </Button>
 
-        {trending?.results?.slice(0, 3)?.map((anime: IAnimeResult) => {
-          return (
-            <SwiperSlide key={anime.id} className="relative">
-              <SwiperCard anime={anime} />
-            </SwiperSlide>
-          );
-        })}
+        {trending?.results
+          ?.slice(3, 8)
+          ?.map((anime: IAnimeResult, index: number) => {
+            if (index !== 2) {
+              // Skip the element at index 2 (third element)
+              return (
+                <SwiperSlide key={anime.id} className="relative">
+                  <SwiperCard anime={anime} />
+                </SwiperSlide>
+              );
+            }
+            return null; // Render null for the third element to skip it
+          })}
       </Swiper>
     </div>
   );
@@ -81,10 +87,10 @@ export default function HeroSlider() {
 function SwiperCard({ anime }: { anime: IAnimeResult }) {
   return (
     <>
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent p-5 md:p-10 hidden sm:flex w-2/3" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black to-transparent p-5 md:p-10 hidden sm:flex w-full" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-transparent p-5 md:p-10 flex sm:hidden " />
       <div className="absolute inset-0 px-5 py-8 sm:p-10 flex md:mx-5">
-        <div className="flex-1 flex flex-col gap-4 justify-between">
+        <div className="flex-1 flex flex-col gap-4 justify-between sm:justify-center">
           <Link
             href={`anilist?anime=${anime.id}`}
             className="text-center sm:text-left text-xl md:text-2xl font-bold text-white"
@@ -113,12 +119,12 @@ function SwiperCard({ anime }: { anime: IAnimeResult }) {
               )}
             >
               <Play className="h-4 w-4 mr-2" />
-              <span className="hidden sm:inline">Start watching s1 e1</span>
+              <span className="hidden sm:inline">Start watching e1</span>
               <span className="inline sm:hidden">Start watching</span>
             </Link>
             <Tooltip showArrow={true} content="Add to Watchlist">
               <Button size="icon" variant="outline" className="min-w-[40px]">
-                <Plus className="h-4 w-4" />
+                <Bookmark className="h-5 w-5" />
               </Button>
             </Tooltip>
           </div>
@@ -128,7 +134,7 @@ function SwiperCard({ anime }: { anime: IAnimeResult }) {
       <img
         src={anime.cover || ""}
         alt="anime cover"
-        className="hidden sm:block object-cover w-full h-[320px]"
+        className="hidden sm:block object-cover w-full h-[500px]"
       />
 
       <img
