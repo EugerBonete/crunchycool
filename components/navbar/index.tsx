@@ -159,7 +159,15 @@ export default function Nav() {
               </Link>
             ))}
             <Accordion className="m-0 p-0">
-              <AccordionItem key="1" aria-label="Genres" title="Genres">
+              <AccordionItem
+                key="1"
+                aria-label="Genres"
+                title={
+                  <h3 className="text-muted-foreground text-sm uppercase font-semibold">
+                    Genres
+                  </h3>
+                }
+              >
                 {Genres.map((genre: string) => (
                   <Link href={`/genre?q=${genre}`} className="w-full">
                     <Button variant="ghost" className="w-full justify-start">
