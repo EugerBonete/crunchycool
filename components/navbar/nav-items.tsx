@@ -61,33 +61,15 @@ export default function NavItems() {
             </div>
           </PopoverContent>
         </Popover>
-        <Link className="text-sm" href="/manga" aria-current="page">
-          <Button variant="ghost">Manga</Button>
+        <Link className="text-sm" href="/video?q=Popular" aria-current="page">
+          <Button variant="ghost">Popular</Button>
         </Link>
-        <Link className="text-sm" color="foreground" href="/k-drama">
-          <Button variant="ghost">K-Drama</Button>
+        <Link className="text-sm" href="/video?q=New" aria-current="page">
+          <Button variant="ghost">New</Button>
         </Link>
-        <Popover placement="bottom" showArrow={true} radius="none">
-          <PopoverTrigger>
-            <Button
-              variant="ghost"
-              className="flex text-sm items-center cursor-pointer"
-            >
-              News <ChevronDown className="h-4 w-4 ml-2" />
-            </Button>
-          </PopoverTrigger>
-          <PopoverContent>
-            <div className="flex">
-              <div className="flex flex-col">
-                {Navigation.map((item: string) => (
-                  <Button variant="ghost" className="w-full justify-start">
-                    {item}
-                  </Button>
-                ))}
-              </div>
-            </div>
-          </PopoverContent>
-        </Popover>
+        <Link className="text-sm" href="/video?q=Trending" aria-current="page">
+          <Button variant="ghost">Trending</Button>
+        </Link>
       </NavbarItem>
     </NavbarContent>
   );

@@ -7,7 +7,6 @@ import { Pagination } from "@nextui-org/react";
 import { useGetGogo } from "@/context/gogo";
 
 const Genre: React.FC = () => {
-  const server = "anilist";
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -20,6 +19,8 @@ const Genre: React.FC = () => {
   const q = searchParams.get("q") || "";
   const page = parseInt(searchParams.get("page") || "1", 10);
   const type: string = typeMap[q] || "";
+
+  const server = q === "Popular" ? "anilist" : "gogoanime";
 
   const { data, isFetching, isFetched } = useGetGogo({
     type: type,
