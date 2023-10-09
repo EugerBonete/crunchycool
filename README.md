@@ -1,36 +1,21 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Shuriken Crunchyroll Clone Project
 
-## Getting Started
+<div style="display: flex; align-items: center;">
+  <img src="https://scontent.fceb2-2.fna.fbcdn.net/v/t1.15752-9/385366101_152333571236391_6448183953304001496_n.png?_nc_cat=102&ccb=1-7&_nc_sid=ae9488&_nc_eui2=AeGQxGTV-4cE5jYzjL390QePJ3H2XAHtDz8ncfZcAe0PP3jNlCz9cd4gTtFLkok5XDWQDtThHIBe9DXx8xEIa-TC&_nc_ohc=PHOJrnhAZxsAX9LMgbL&_nc_ht=scontent.fceb2-2.fna&oh=03_AdQox6oo2xyjxsRA4ej4Jlh1g4qt8eWxT2cn27F_t7rS_w&oe=654B9D25" alt="Shuriken Crunchyroll Clone Logo" style="width: 50%;">
+  <img src="https://scontent.fcrk4-1.fna.fbcdn.net/v/t1.15752-9/386890676_1079598033080030_8811431689580522246_n.png?_nc_cat=111&ccb=1-7&_nc_sid=ae9488&_nc_eui2=AeFczfqbQlGbLLWOp-5xrNK3Lghgv4SSuaAuCGC_hJK5oEoSMn_f7MjOWYrfue43QdXkZmy8cd_ZVw-figs_a6Um&_nc_ohc=SiDAHjnfnlgAX-OfGZa&_nc_ht=scontent.fcrk4-1.fna&oh=03_AdS9MFe1kLhThUmmn-Mv2sgzsqkBslzd850Fo58yQLS6Zg&oe=654B709E" alt="Second Image" style="width: 50%;">
+</div>
 
-First, run the development server:
+## Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Shuriken Crunchyroll Clone is a simple crunchyroll clone
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit the live website: [shurikenclone.com](https://shurikenclone.com)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Technologies Used
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Next.js 13**: Utilized for server-rendered React applications, ensuring smooth anime streaming.
+- **TypeScript**: Enhances development and maintains code quality.
+- **Tailwind CSS**: Provides modern and responsive styling for a visually pleasing user experience.
+- **hls.js**: Delivers efficient HTTP Live Streaming (HLS) for high-quality video playback.
+- **artplayer**: Enhances the video player with custom features tailored for our Crunchyroll clone.
+- **react-query**: Manages data fetching and state, ensuring a seamless user experience.
