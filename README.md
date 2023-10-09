@@ -1,5 +1,4 @@
-# Shuriken Crunchyroll Clone Project
-
+# Shuriken - crunchyroll clone
 
 
 <div style="display: flex; justify-content: space-between;">
