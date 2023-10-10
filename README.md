@@ -10,7 +10,7 @@
 
 Shuriken Crunchyroll Clone is a simple crunchyroll clone
 
-Visit the live website: [shurikenclone.com](https://shuriken.vercel.app)
+Visit the live website: [shuriken.vercel.app](https://shuriken.vercel.app)
 
 ## Technologies Used
 
