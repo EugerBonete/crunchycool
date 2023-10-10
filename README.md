@@ -20,3 +20,11 @@ Visit the live website: [shurikenclone.com](https://shuriken.vercel.app)
 - **hls.js**: Delivers efficient HTTP Live Streaming (HLS) for high-quality video playback.
 - **artplayer**: Enhances the video player with custom features tailored for our Crunchyroll clone.
 - **react-query**: Manages data fetching and state, ensuring a seamless user experience.
+
+## Features and Capabilities
+
+- **Genre Filtering:** Easily find anime that matches your preferences by filtering based on genres such as action, romance, fantasy, and more.
+- **Anime Streaming:** Enjoy a vast library of anime series and movies available for streaming in high quality.
+- **User-Friendly Interface:** Enjoy a user-friendly and intuitive interface for a seamless anime-watching experience.
+- **Subtitles and Dubbing:** Select from a variety of subtitle languages or watch anime with dubbed audio for a more immersive experience.
+- **Latest Episodes:** Stay up-to-date with the latest episodes of your favorite anime series as they are released.
